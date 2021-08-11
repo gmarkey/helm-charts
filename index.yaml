@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  k8s-snapshots:
+  - apiVersion: v2
+    appVersion: "2.0"
+    created: "2021-08-11T11:17:52.778722+08:00"
+    description: miracle2k/k8s-snapshots
+    digest: ab2933095ade3054e101b1338c5ef1b3a37ec05943347a4011ce332f84274390
+    name: k8s-snapshots
+    type: application
+    urls:
+    - https://gmarkey.github.io/helm-charts/k8s-snapshots-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-08-11T11:17:52.775939+08:00"
