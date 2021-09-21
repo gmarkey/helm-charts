@@ -3,7 +3,7 @@ entries:
   k8s-snapshots:
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2021-08-11T12:00:35.81633+08:00"
+    created: "2021-09-21T08:38:23.00942+02:00"
     description: miracle2k/k8s-snapshots
     digest: 322b490d6713e6b48b3c58af81468d1a68ade1d80801862685788d509df03db5
     name: k8s-snapshots
@@ -13,7 +13,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2021-08-11T12:00:35.815713+08:00"
+    created: "2021-09-21T08:38:23.008738+02:00"
     description: miracle2k/k8s-snapshots
     digest: ab2933095ade3054e101b1338c5ef1b3a37ec05943347a4011ce332f84274390
     name: k8s-snapshots
@@ -21,4 +21,15 @@ entries:
     urls:
     - https://gmarkey.github.io/helm-charts/k8s-snapshots-0.1.0.tgz
     version: 0.1.0
-generated: "2021-08-11T12:00:35.81454+08:00"
+  tz:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-09-21T08:38:23.010085+02:00"
+    description: gmarkey/tz
+    digest: 4066c93dc66c509e1c5ee08c301e8bffb15d95946d3749af104e0e9e4cd86396
+    name: tz
+    type: application
+    urls:
+    - https://gmarkey.github.io/helm-charts/tz-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-09-21T08:38:23.007757+02:00"

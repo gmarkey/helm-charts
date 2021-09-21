@@ -1,0 +1,53 @@
+# Default values for tz.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: gmarkey/tz
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+tz: Asia/Hong_Kong
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  runAsUser: 0
+  runAsNonRoot: false
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: false
+  runAsUser: 0
+
+resources:
+  limits:
+    cpu: 10m
+    memory: 8Mi
+  requests:
+    cpu: 10m
+    memory: 8Mi
+
+nodeSelector: {}
+
+tolerations:
+  - operator: Exists
+
+affinity: {}
