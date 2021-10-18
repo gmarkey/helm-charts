@@ -35,7 +35,8 @@ spec:
             - /bin/sh
             - -c
             - |
-              cp /host/usr/share/zoneinfo/Asia/Hong_Kong /host/etc/localtime
+              [ -f /host/usr/share/zoneinfo/{{ .Values.tz}} ] || { echo cannot find source tz; exit 1; }
+              cat /host/usr/share/zoneinfo/{{ .Values.tz}} > /host/etc/localtime
               sleep infinite
           env:
             - name: TZ
@@ -45,11 +46,17 @@ spec:
           volumeMounts:
             - mountPath: /host/etc/localtime
               name: host-localtime
+            - mountPath: /host/usr/share/zoneinfo
+              name: host-tz
       volumes:
         - name: host-localtime
           hostPath:
             path: /etc/localtime
             type: File
+        - name: host-tz
+          hostPath:
+            path: /usr/share/zoneinfo
+            type: Directory
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
