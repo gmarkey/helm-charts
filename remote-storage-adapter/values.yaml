@@ -75,3 +75,13 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+volumeMounts: []
+  # - name: tz
+  #   mountPath: /etc/localtime
+
+volumes: []
+  # - name: tz
+  #   hostPath:
+  #     path: /etc/localtime
+  #     type: File
