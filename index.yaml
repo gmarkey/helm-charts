@@ -1,9 +1,20 @@
 apiVersion: v1
 entries:
+  ecr-proxy:
+  - apiVersion: v2
+    appVersion: 7fde282
+    created: "2022-02-16T11:09:36.985616+10:00"
+    description: gmarkey/ecr-proxy
+    digest: 6517a85bc4dbe591eb473d777ddfd78c9f81c19a23e588d81b3997d54add3f90
+    name: ecr-proxy
+    type: application
+    urls:
+    - https://gmarkey.github.io/helm-charts/ecr-proxy-0.1.0.tgz
+    version: 0.1.0
   k8s-snapshots:
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2021-11-18T10:37:25.521725+08:00"
+    created: "2022-02-16T11:09:36.986304+10:00"
     description: miracle2k/k8s-snapshots
     digest: 322b490d6713e6b48b3c58af81468d1a68ade1d80801862685788d509df03db5
     name: k8s-snapshots
@@ -13,7 +24,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2021-11-18T10:37:25.521011+08:00"
+    created: "2022-02-16T11:09:36.985966+10:00"
     description: miracle2k/k8s-snapshots
     digest: ab2933095ade3054e101b1338c5ef1b3a37ec05943347a4011ce332f84274390
     name: k8s-snapshots
@@ -24,7 +35,7 @@ entries:
   remote-storage-adapter:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-11-18T10:37:25.524083+08:00"
+    created: "2022-02-16T11:09:36.987471+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: efa85e252cd6d77f8f1f0f6f21dc0e48c36c119749b488e370295f817eca514a
     name: remote-storage-adapter
@@ -34,7 +45,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-11-18T10:37:25.52313+08:00"
+    created: "2022-02-16T11:09:36.987079+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: 39d51210e2171802bf7c0481080eaf35b0ec3fced2a7fc74f528f7cf67e14593
     name: remote-storage-adapter
@@ -44,7 +55,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-11-18T10:37:25.522449+08:00"
+    created: "2022-02-16T11:09:36.986681+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: e95ad62a6d8e68b32ec491724f0c0c970faa215bcdbc1a129c6814ae7147a281
     name: remote-storage-adapter
@@ -55,7 +66,7 @@ entries:
   tz:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-11-18T10:37:25.525328+08:00"
+    created: "2022-02-16T11:09:36.988172+10:00"
     description: gmarkey/tz
     digest: 158e7dcc9f55aafedc7f38d64f8194e6d425afd92bda6a7b8e4ea00f5fb3ea25
     name: tz
@@ -65,7 +76,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-11-18T10:37:25.524743+08:00"
+    created: "2022-02-16T11:09:36.987782+10:00"
     description: gmarkey/tz
     digest: 4066c93dc66c509e1c5ee08c301e8bffb15d95946d3749af104e0e9e4cd86396
     name: tz
@@ -73,4 +84,4 @@ entries:
     urls:
     - https://gmarkey.github.io/helm-charts/tz-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-18T10:37:25.519619+08:00"
+generated: "2022-02-16T11:09:36.984683+10:00"
