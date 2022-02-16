@@ -8,7 +8,7 @@ image:
   repository: gmarkey/aws-ecr-http-proxy
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "b2c7fcc"
+  tag: "2db5386"
 
 imagePullSecrets: []
 nameOverride: ""

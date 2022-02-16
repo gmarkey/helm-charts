@@ -74,5 +74,4 @@ spec:
       volumes:
         - name: tmp
           emptyDir:
-            medium: Memory
-            sizeLimit: 15Mi
+            sizeLimit: 1Gi
