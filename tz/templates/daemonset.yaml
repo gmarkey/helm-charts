@@ -5,6 +5,10 @@ metadata:
   labels:
     {{- include "tz.labels" . | nindent 4 }}
 spec:
+  {{- with .Values.updateStrategy }}
+  updateStrategy:
+    {{- toYaml . | nindent 2 }}
+  {{- end }}
   selector:
     matchLabels:
       {{- include "tz.selectorLabels" . | nindent 6 }}
