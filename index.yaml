@@ -3,9 +3,9 @@ entries:
   cpupooler:
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2022-03-23T20:25:08.200325+10:00"
+    created: "2022-03-23T20:34:08.817014+10:00"
     description: gmarkey/cpupooler
-    digest: 87f95949938447c84452e797323784eed057b24d6c99ab5d651cf4a35f93f7a9
+    digest: 5904796eef4ad7a1c50b43c11738a37cc80e61abec0fe218e63f6994cc70f164
     name: cpupooler
     type: application
     urls:
@@ -13,7 +13,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2022-03-23T20:25:08.19987+10:00"
+    created: "2022-03-23T20:34:08.816517+10:00"
     description: gmarkey/cpupooler
     digest: 3082f9716ea89ddcf9d9325600a78e815ee81da375ac7053df825bf056e94cad
     name: cpupooler
@@ -24,7 +24,7 @@ entries:
   ecr-proxy:
   - apiVersion: v2
     appVersion: bf1b787
-    created: "2022-03-23T20:25:08.203245+10:00"
+    created: "2022-03-23T20:34:08.820392+10:00"
     description: gmarkey/ecr-proxy
     digest: 17c7159a79b5bc576f18b5aaed65c5fed7b86c91301e78aa5fea8b6078a433e0
     name: ecr-proxy
@@ -34,7 +34,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 5e96982
-    created: "2022-03-23T20:25:08.202459+10:00"
+    created: "2022-03-23T20:34:08.819794+10:00"
     description: gmarkey/ecr-proxy
     digest: fd412f390ae8e70c950cd3cd57b412a0293adb5d2ae40d8ed2cdf0e8eb38a223
     name: ecr-proxy
@@ -44,7 +44,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: b2c7fcc
-    created: "2022-03-23T20:25:08.202032+10:00"
+    created: "2022-03-23T20:34:08.819257+10:00"
     description: gmarkey/ecr-proxy
     digest: f4c829aeb2001bd50bfb3c004357db4bc271922e4e168e5eed995953564d6196
     name: ecr-proxy
@@ -54,7 +54,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 7fde282
-    created: "2022-03-23T20:25:08.201592+10:00"
+    created: "2022-03-23T20:34:08.818619+10:00"
     description: gmarkey/ecr-proxy
     digest: c574c0a3fc913707586e74768b7d6810a19d11a2345a81342d185ef866ee03bd
     name: ecr-proxy
@@ -64,7 +64,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 7fde282
-    created: "2022-03-23T20:25:08.201173+10:00"
+    created: "2022-03-23T20:34:08.818125+10:00"
     description: gmarkey/ecr-proxy
     digest: 6608c787ba928424ceb9a4f0f8db3b2d1f93eabdaf617432d4985f7630fe0416
     name: ecr-proxy
@@ -74,7 +74,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 7fde282
-    created: "2022-03-23T20:25:08.200747+10:00"
+    created: "2022-03-23T20:34:08.817544+10:00"
     description: gmarkey/ecr-proxy
     digest: 6517a85bc4dbe591eb473d777ddfd78c9f81c19a23e588d81b3997d54add3f90
     name: ecr-proxy
@@ -85,7 +85,7 @@ entries:
   k8s-snapshots:
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2022-03-23T20:25:08.203925+10:00"
+    created: "2022-03-23T20:34:08.821662+10:00"
     description: miracle2k/k8s-snapshots
     digest: 322b490d6713e6b48b3c58af81468d1a68ade1d80801862685788d509df03db5
     name: k8s-snapshots
@@ -95,7 +95,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2022-03-23T20:25:08.203619+10:00"
+    created: "2022-03-23T20:34:08.821227+10:00"
     description: miracle2k/k8s-snapshots
     digest: ab2933095ade3054e101b1338c5ef1b3a37ec05943347a4011ce332f84274390
     name: k8s-snapshots
@@ -106,7 +106,7 @@ entries:
   remote-storage-adapter:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-03-23T20:25:08.205034+10:00"
+    created: "2022-03-23T20:34:08.823383+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: efa85e252cd6d77f8f1f0f6f21dc0e48c36c119749b488e370295f817eca514a
     name: remote-storage-adapter
@@ -116,7 +116,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-03-23T20:25:08.20466+10:00"
+    created: "2022-03-23T20:34:08.822895+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: 39d51210e2171802bf7c0481080eaf35b0ec3fced2a7fc74f528f7cf67e14593
     name: remote-storage-adapter
@@ -126,7 +126,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-03-23T20:25:08.204278+10:00"
+    created: "2022-03-23T20:34:08.822218+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: e95ad62a6d8e68b32ec491724f0c0c970faa215bcdbc1a129c6814ae7147a281
     name: remote-storage-adapter
@@ -137,7 +137,7 @@ entries:
   tz:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-03-23T20:25:08.207187+10:00"
+    created: "2022-03-23T20:34:08.825087+10:00"
     description: gmarkey/tz
     digest: d2adacbd2ae9ef7078a3dc2ddf8532c7c22d85496af313a3c3cb7f19e7ffa37e
     name: tz
@@ -147,7 +147,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-03-23T20:25:08.20672+10:00"
+    created: "2022-03-23T20:34:08.824647+10:00"
     description: gmarkey/tz
     digest: a02f022fed58dd5d9b28c88dc0b678258b8a2e039240814a6a52e05f093630bf
     name: tz
@@ -157,7 +157,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-03-23T20:25:08.206255+10:00"
+    created: "2022-03-23T20:34:08.824284+10:00"
     description: gmarkey/tz
     digest: 158e7dcc9f55aafedc7f38d64f8194e6d425afd92bda6a7b8e4ea00f5fb3ea25
     name: tz
@@ -167,7 +167,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2022-03-23T20:25:08.205561+10:00"
+    created: "2022-03-23T20:34:08.823896+10:00"
     description: gmarkey/tz
     digest: 4066c93dc66c509e1c5ee08c301e8bffb15d95946d3749af104e0e9e4cd86396
     name: tz
@@ -175,4 +175,4 @@ entries:
     urls:
     - https://gmarkey.github.io/helm-charts/tz-0.1.0.tgz
     version: 0.1.0
-generated: "2022-03-23T20:25:08.198583+10:00"
+generated: "2022-03-23T20:34:08.815574+10:00"

@@ -31,37 +31,37 @@ items:
   metadata:
     name: {{ include "cpupooler.fullname" . }}-webhook
     labels:
-      {{- include "cpupooler.labels" . | nindent 4 }}
+      {{- include "cpupooler.labels" . | nindent 6 }}
   spec:
     replicas: {{ .Values.webhook.replicas }}
     selector:
       matchLabels:
-        {{- include "cpupooler.selectorLabels" . | nindent 6 }}
+        {{- include "cpupooler.selectorLabels" . | nindent 8 }}
     template:
       metadata:
         {{- with .Values.webhook.podAnnotations }}
         annotations:
-          {{- toYaml . | nindent 8 }}
+          {{- toYaml . | nindent 10 }}
         {{- end }}
         labels:
-          {{- include "cpupooler.selectorLabels" . | nindent 8 }}
+          {{- include "cpupooler.selectorLabels" . | nindent 10 }}
       spec:
         {{- with .Values.webhook.imagePullSecrets }}
         imagePullSecrets:
-          {{- toYaml . | nindent 8 }}
+          {{- toYaml . | nindent 10 }}
         {{- end }}
         serviceAccountName: {{ include "cpupooler.serviceAccountName" . }}
         securityContext:
-          {{- toYaml .Values.webhook.podSecurityContext | nindent 8 }}
+          {{- toYaml .Values.webhook.podSecurityContext | nindent 10 }}
         containers:
           - name: webhook
             command: ["/cpu-device-webhook", "-logtostderr", "-tls-cert-file=/tls/tls.crt", "-tls-private-key-file=/tls/tls.key", "-process-starter-path=/process-starter", "-v=5"]
             securityContext:
-              {{- toYaml .Values.webhook.securityContext | nindent 12 }}
+              {{- toYaml .Values.webhook.securityContext | nindent 14 }}
             image: "{{ .Values.webhook.image.repository }}:{{ .Values.webhook.image.tag | default .Chart.AppVersion }}"
             imagePullPolicy: {{ .Values.webhook.image.pullPolicy }}
             resources:
-              {{- toYaml .Values.webhook.resources | nindent 12 }}
+              {{- toYaml .Values.webhook.resources | nindent 14 }}
             volumeMounts:
               - name: tls-ca
                 mountPath: /tls-ca
@@ -89,11 +89,11 @@ items:
   #            type: Directory
         {{- with .Values.webhook.affinity }}
         affinity:
-          {{- toYaml . | nindent 8 }}
+          {{- toYaml . | nindent 10 }}
         {{- end }}
         {{- with .Values.webhook.tolerations }}
         tolerations:
-          {{- toYaml . | nindent 8 }}
+          {{- toYaml . | nindent 10 }}
         {{- end }}
 
 - apiVersion: admissionregistration.k8s.io/v1
