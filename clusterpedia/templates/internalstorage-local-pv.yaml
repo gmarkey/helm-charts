@@ -1,0 +1,25 @@
+{{- if and .Values.persistenceMatchNode (eq .Values.storageInstallMode "internal") -}}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ include "clusterpedia.internalstorage.fullname" . }}
+spec:
+  capacity:
+    storage: {{ include "clusterpedia.internalstorage.capacity" . }}
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: {{ include "clusterpedia.storage.hostPath" . }}
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        {{- with .Values.persistenceMatchNode }}
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - {{ . }}
+        {{- end }}
+{{- end -}}

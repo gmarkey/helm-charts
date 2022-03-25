@@ -1,0 +1,42 @@
+{{- if and .Values.persistenceMatchNode (eq .Values.storageInstallMode "internal") -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "clusterpedia.job.storage.fullname" .}}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ include "clusterpedia.internalstorage.fullname" . }}
+    internalstorage.clusterpedia.io/type: {{ include "clusterpedia.storage.type" . }}
+  annotations: 
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  ttlSecondsAfterFinished: 600
+  template:
+    metadata:
+      labels:
+        app: {{ include "clusterpedia.internalstorage.fullname" . }}
+        internalstorage.clusterpedia.io/type: {{ include "clusterpedia.storage.type" . }}
+        job: check-node-local-pv-dir
+    spec:
+      restartPolicy: Never
+      nodeName: {{ .Values.persistenceMatchNode }}
+      containers:
+      - name: check-dir
+        image: {{ include "clusterpedia.storage.image" . }}
+        env:
+          - name: {{ include "clusterpedia.job.storage.password.key" . }}
+            value: {{ include "clusterpedia.job.storage.password" . | quote }}
+        command: ['sh', '-c', 'stat {{ include "clusterpedia.job.storage.mountPath" . }}']
+        volumeMounts:
+        - name: pv-dir
+          mountPath: {{ include "clusterpedia.storage.mountPath" . }}
+      volumes:
+      - name: pv-dir
+        hostPath:
+          path: {{ include "clusterpedia.storage.hostPath" . }}
+      tolerations:
+      - key: "node-role.kubernetes.io/master"
+        operator: "Exists"
+        effect: "NoSchedule"
+{{- end -}}

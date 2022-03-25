@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "clusterpedia.apiserver.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: {{ include "clusterpedia.apiserver.fullname" . }}
+    {{- if .Values.podLabels }}
+    {{- include "common.tplvalues.render" (dict "value" .Values.apiServer.podLabels "context" $) | nindent 4 }}
+    {{- end }}
