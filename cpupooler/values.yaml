@@ -72,6 +72,10 @@ affinity:
           - key: node.kubernetes.io/node-class
             operator: Exists
 
+mutateSelectorExpressions:
+  - key: k8s-app
+    operator: NotIn
+    values: ["aws-node", "kube-dns"]
 
 webhook:
   image:
