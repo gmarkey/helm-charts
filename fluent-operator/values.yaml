@@ -115,7 +115,8 @@ nameOverride: ""
 fullnameOverride: ""
 namespaceOverride: ""
 
+nodeSelector: {}
 
+tolerations: []
 
-
-
+affinity: {}
