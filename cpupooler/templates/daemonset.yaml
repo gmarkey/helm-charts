@@ -25,7 +25,22 @@ spec:
       priorityClassName: system-node-critical
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-#      initContainers:
+      initContainers:
+        - name: copy-process-starter
+          securityContext:
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: false
+            runAsUser: 0
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["/bin/cp", "/process-starter", "/opt/bin/process-starter"]
+          volumeMounts:
+            - mountPath: /opt/bin
+              name: opt-bin
+              readOnly: false
       containers:
         - name: cpu-device-plugin
           securityContext:

@@ -27,7 +27,7 @@ spec:
         {{- toYaml .Values.webhook.podSecurityContext | nindent 8 }}
       containers:
         - name: webhook
-          command: ["/cpu-device-webhook", "-logtostderr", "-tls-cert-file=/tls/tls.crt", "-tls-private-key-file=/tls/tls.key", "-process-starter-path=/process-starter", "-v=5"]
+          command: ["/cpu-device-webhook", "-logtostderr", "-tls-cert-file=/tls/tls.crt", "-tls-private-key-file=/tls/tls.key", "-process-starter-path=/opt/bin/process-starter", "-v=5"]
           securityContext:
             {{- toYaml .Values.webhook.securityContext | nindent 12 }}
           image: "{{ .Values.webhook.image.repository }}:{{ .Values.webhook.image.tag | default .Chart.AppVersion }}"
