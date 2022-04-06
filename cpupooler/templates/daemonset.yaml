@@ -80,7 +80,7 @@ spec:
               readOnly: true
             - mountPath: /rootfs/sys/fs/cgroup/cpuset/kubepods/
               name: kubepods
-              readOnly: true
+              readOnly: false
             - mountPath: /etc/cpu-pooler
               name: cpu-pooler-config
       volumes:
