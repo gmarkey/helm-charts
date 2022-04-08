@@ -26,6 +26,9 @@ spec:
           - matchExpressions:
               - key: node-role.kubernetes.io/edge
                 operator: DoesNotExist
+  {{- with .Values.fluentbit.additionalSpec }}
+  {{- toYaml . | nindent 2 }}
+  {{- end }}
   {{- if .Values.fluentbit.secrets }}
   secrets:
   {{ toYaml .Values.fluentbit.secrets | indent 4 }}

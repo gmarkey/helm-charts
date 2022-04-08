@@ -69,6 +69,10 @@ fluentbit:
       brokers: "<kafka broker list like xxx.xxx.xxx.xxx:9092,yyy.yyy.yyy.yyy:9092>"
       topics: ks-log
 
+  # Arbitrary FluentBitSpec values.
+  additionalSpec:
+    priorityClassName: system-node-critical
+
 fluentd:
   enable: false
   name: fluentd
