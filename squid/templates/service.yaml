@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "squid.fullname" . }}
+{{- if .Values.service.annotations }}
+  annotations:
+  {{- range $key, $value := .Values.service.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+{{- end }}
+  labels:
+    app: {{ template "squid.name" . }}
+    chart: {{ template "squid.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+{{- if .Values.metrics.enabled }}
+    - port: {{ .Values.metrics.exporter.port }}
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+{{- end }}
+  selector:
+    app: {{ template "squid.name" . }}
+    release: {{ .Release.Name }}

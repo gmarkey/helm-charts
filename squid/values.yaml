@@ -1,0 +1,133 @@
+# Default values for squid.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+
+image:
+  repository: datadog/squid
+  tag: latest
+  pullPolicy: IfNotPresent
+  # imagePullSecrets:
+
+service:
+  type: LoadBalancer
+  port: 3128
+  annotations: {}
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 65534
+  runAsGroup: 65534
+  fsGroup: 65534
+
+securityContext:
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+    - ALL
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+config: |
+  acl SSL_ports port 443
+  acl Safe_ports port 80		# http
+  acl Safe_ports port 443		# https
+  acl CONNECT method CONNECT
+
+  # Recommended minimum Access Permission configuration:
+  #
+  # Deny requests to certain unsafe ports
+  http_access deny !Safe_ports
+
+  # Only allow cachemgr access from localhost
+  http_access allow localhost manager
+  http_access deny manager
+
+  # Squid normally listens to port 3128
+  http_port 3128
+
+  # Uncomment and adjust the following to add a disk cache directory.
+  #cache_dir ufs /var/cache/squid 100 16 256
+
+  # Leave coredumps in the first cache dir
+  coredump_dir /var/cache/squid
+
+  # Do not display squid version
+  httpd_suppress_version_string on
+
+  # Suppress the original host identity
+  forwarded_for off
+
+  access_log /dev/stdout
+  cache_log /dev/stdout
+  logfile_rotate 0
+
+
+resources:
+  limits:
+   cpu: 1000m
+   memory: 1Gi
+  requests:
+   cpu: 500m
+   memory: 512Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity:
+  podAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 100
+      podAffinityTerm:
+        topologyKey: kubernetes.io/hostname
+        labelSelector:
+          matchExpressions:
+          - key: node_class
+            operator: In
+            values:
+            - general-purpose
+
+metrics:
+  enabled: true
+  serviceMonitor: true
+  exporter:
+    port: 9301
+    resources:
+      limits:
+       cpu: 100m
+       memory: 128Mi
+      requests:
+       cpu: 100m
+       memory: 64Mi
+    image:
+      repository: boynux/squid-exporter
+      tag: v1.8
+      pullPolicy: IfNotPresent

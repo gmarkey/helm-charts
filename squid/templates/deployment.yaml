@@ -1,0 +1,117 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "squid.fullname" . }}
+  labels:
+    app: {{ template "squid.name" . }}
+    chart: {{ template "squid.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "squid.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "squid.name" . }}
+        release: {{ .Release.Name }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      serviceAccountName: {{ include "squid.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+{{- if .Values.image.imagePullSecrets }}
+      imagePullSecrets:
+        - name: {{ .Values.image.imagePullSecrets }}
+{{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          command: [ "/usr/sbin/squid", "-f", "/etc/squid/squid.conf", "-NYCd", "1"]
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          ports:
+          - name: http
+            containerPort: 3128
+            protocol: TCP
+          volumeMounts:
+          - name: {{ template "squid.fullname" . }}-conf
+            mountPath: /etc/squid/squid.conf
+            subPath: squid.conf
+          - name: var-cache
+            mountPath: /var/cache/squid
+          - name: var-run
+            mountPath: /var/run
+        # Load the configuration files for nginx
+          livenessProbe:
+            tcpSocket:
+              port: 3128
+            initialDelaySeconds: 5
+            periodSeconds: 10 
+          readinessProbe:
+            tcpSocket:
+              port: 3128
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+{{- if .Values.metrics.enabled }}
+        - name: exporter
+          image: "{{ .Values.metrics.exporter.image.repository }}:{{ .Values.metrics.exporter.image.tag }}"
+          imagePullPolicy: {{ .Values.metrics.exporter.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          env:
+          - name: SQUID_HOSTNAME
+            value: localhost
+          - name: SQUID_EXPORTER_LISTEN
+            value: ":{{ .Values.metrics.exporter.port }}"
+          - name: SQUID_PORT
+            value: "3128"
+          ports:
+          - name: metrics
+            containerPort: {{ .Values.metrics.exporter.port }}
+            protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.metrics.exporter.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: metrics
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+{{ toYaml .Values.metrics.exporter.resources | indent 12 }}
+{{- end }}
+      volumes:
+      - name: {{ template "squid.fullname" . }}-conf
+        configMap:
+          name: {{ template "squid.fullname" . }}-conf
+      - emptyDir:
+          sizeLimit: "1Gi"
+        name: var-cache
+      - name: var-run
+        emptyDir:
+          sizeLimit: "1Gi"
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- if .Values.affinity }}
+      affinity:
+    {{- end }}
+    {{- with .Values.affinity }}
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
