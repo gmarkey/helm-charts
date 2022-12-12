@@ -1,5 +1,5 @@
 {{- if .Values.Kubernetes -}}
-{{- if .Values.fluentbit.output.kafka.enable -}}
+{{- if .Values.fluentbit.output.kafka -}}
 apiVersion: fluentbit.fluent.io/v1alpha2
 kind: ClusterOutput
 metadata:

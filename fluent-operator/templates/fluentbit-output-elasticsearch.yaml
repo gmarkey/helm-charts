@@ -1,5 +1,5 @@
 {{- if .Values.Kubernetes -}}
-{{- if .Values.fluentbit.output.es.enable -}}
+{{- if .Values.fluentbit.output.es -}}
 apiVersion: fluentbit.fluent.io/v1alpha2
 kind: ClusterOutput
 metadata:
@@ -9,12 +9,9 @@ metadata:
     fluentbit.fluent.io/component: logging
 spec:
   matchRegex: (?:kube|service)\.(.*)
+  {{- with .Values.fluentbit.output.es }}
   es:
-    host: {{ .Values.fluentbit.output.es.host }}
-    port: {{ .Values.fluentbit.output.es.port }}
-    generateID: true
-    logstashPrefix: ks-logstash-log
-    logstashFormat: true
-    timeKey: "@timestamp"
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 {{- end }}
 {{- end }}
