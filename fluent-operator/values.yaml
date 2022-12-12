@@ -68,6 +68,7 @@ fluentbit:
       enable: false
       brokers: "<kafka broker list like xxx.xxx.xxx.xxx:9092,yyy.yyy.yyy.yyy:9092>"
       topics: ks-log
+      message_key: message
 
   # Arbitrary FluentBitSpec values.
   additionalSpec:

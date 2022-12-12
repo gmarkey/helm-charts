@@ -9,8 +9,9 @@ metadata:
     fluentbit.fluent.io/component: logging
 spec:
   matchRegex: (?:kube|service)\.(.*)
+  {{- with .Values.fluentbit.output.kafka }}
   kafka:
-    brokers: {{ .Values.fluentbit.output.kafka.brokers }}
-    topics: {{ .Values.fluentbit.output.kafka.topics }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 {{- end }}
 {{- end }}
