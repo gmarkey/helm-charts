@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: 4.8.2
+description: |
+  Dependency-Track is an intelligent Software Supply Chain Component Analysis platform that allows organizations to identify and reduce risk from the use of third-party and open source components. Dependency-Track takes a unique and highly beneficial approach by leveraging the capabilities of Software Bill-of-Materials (SBOM). This approach provides capabilities that traditional Software Composition Analysis (SCA) solutions cannot achieve.
+name: dependency-track
+home: https://dependencytrack.org/
+version: 1.5.6
+icon: https://raw.githubusercontent.com/DependencyTrack/branding/master/dt-logo-black-text.svg
+keywords:
+ - security
+ - dependency
+ - dependency-track
+ - OWASP
+ - Supply Chain Component Analysis
+maintainers:
+- name: davidkarlsen
+  email: david@davidkarlsen.com
+- name: otterian
+  email: eth0linak@gmail.com
+sources:
+ - https://docs.dependencytrack.org/
+ - https://github.com/evryfs/helm-charts
+dependencies:
+- name: postgresql
+  version: ~10.10
+  repository: https://raw.githubusercontent.com/bitnami/charts/eb5f9a9513d987b519f0ecd732e7031241c50328/bitnami
+  condition: postgresql.enabled
+- name: common
+  version: 2.0.x
+  repository: https://charts.bitnami.com/bitnami
