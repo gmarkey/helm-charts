@@ -14,9 +14,7 @@ spec:
     metadata:
       labels: {{- include "frontend.labels.standard" . | nindent 8 }}
     spec:
-      {{- with .Values.global.imagePullSecrets }}
-      imagePullSecrets: {{- toYaml . | nindent 6 }}
-      {{- end }}
+      {{- include "frontend.imagePullSecrets" . | indent 6 }}
       {{- if .Values.frontend.serviceAccount.create}}
       serviceAccountName: {{ include "common.names.fullname" . }}-frontend
       {{- end }}

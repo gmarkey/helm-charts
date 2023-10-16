@@ -27,3 +27,19 @@ app.kubernetes.io/component: backend
 {{ include "common.labels.matchLabels" . }}
 app.kubernetes.io/component: backend
 {{- end -}}
+
+{{/*
+Return the proper Docker Image Registry Secret Names
+*/}}
+{{- define "frontend.imagePullSecrets" -}}
+{{ include "common.images.pullSecrets" (dict "images" (list .Values.frontend.image) "global" .Values.global) }}
+{{- end -}}
+
+
+{{/*
+Return the proper Docker Image Registry Secret Names
+*/}}
+{{- define "backend.imagePullSecrets" -}}
+{{ include "common.images.pullSecrets" (dict "images" (list .Values.apiserver.image) "global" .Values.global) }}
+{{- end -}}
+

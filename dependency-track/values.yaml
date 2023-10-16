@@ -7,7 +7,8 @@
 global:
   imageRegistry: docker.io
   # imagePullSecrets:
-  #   - name: "myRegistryKeySecretName"
+  #   - "myRegistryKeySecretName"
+  imagePullSecrets: []
 
 # -- config of the frontend
 frontend:
@@ -18,6 +19,7 @@ frontend:
     repository: dependencytrack/frontend
     tag: 4.9.0
     pullPolicy: IfNotPresent
+    pullSecrets: []
   # https://github.com/DependencyTrack/frontend/issues/60
   # configmap:
   #  config: |
@@ -97,6 +99,7 @@ apiserver:
     repository: dependencytrack/apiserver
     tag: 4.9.0
     pullPolicy: IfNotPresent
+    pullSecrets: []
   env: []
   persistentVolume:
     accessModes:
