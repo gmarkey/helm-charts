@@ -3,7 +3,7 @@ entries:
   clusterpedia:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-10-12T14:29:28.313916+10:00"
+    created: "2023-10-17T08:30:31.90877+10:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -26,7 +26,7 @@ entries:
   cpupooler:
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-10-12T14:29:28.317858+10:00"
+    created: "2023-10-17T08:30:31.912317+10:00"
     description: gmarkey/cpupooler
     digest: 1109f603bfd8c635ed37e227fc2d5b22f492e8d2f459a9ec72d07826974a748b
     name: cpupooler
@@ -36,7 +36,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-10-12T14:29:28.317439+10:00"
+    created: "2023-10-17T08:30:31.911804+10:00"
     description: gmarkey/cpupooler
     digest: 130ad975e00f9032b4388645b305fe90d2956d993b0cfa4a2b6ae0f2a7b7a082
     name: cpupooler
@@ -46,7 +46,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-10-12T14:29:28.317008+10:00"
+    created: "2023-10-17T08:30:31.911332+10:00"
     description: gmarkey/cpupooler
     digest: 15782c9c773782b1a9b42a86d8971ce2a3c49a7493cf6b405a816e3e7727125a
     name: cpupooler
@@ -56,7 +56,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-10-12T14:29:28.316573+10:00"
+    created: "2023-10-17T08:30:31.910865+10:00"
     description: gmarkey/cpupooler
     digest: e30603c15ff5574c5641c467b4f5ed5cede8be3837f6160ae110361b616347e8
     name: cpupooler
@@ -66,7 +66,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-10-12T14:29:28.316097+10:00"
+    created: "2023-10-17T08:30:31.910366+10:00"
     description: gmarkey/cpupooler
     digest: 1e9a12d32a49ae70b230e668c44685c419b3063adf004760cf2346d641c2507f
     name: cpupooler
@@ -76,7 +76,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-10-12T14:29:28.315565+10:00"
+    created: "2023-10-17T08:30:31.909866+10:00"
     description: gmarkey/cpupooler
     digest: 92925fcee41bc5528a8227cb5ffb28dcdcb18c4b5fb0c8d2b2a5d63e283240bc
     name: cpupooler
@@ -86,7 +86,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-10-12T14:29:28.314369+10:00"
+    created: "2023-10-17T08:30:31.909349+10:00"
     description: gmarkey/cpupooler
     digest: 3082f9716ea89ddcf9d9325600a78e815ee81da375ac7053df825bf056e94cad
     name: cpupooler
@@ -96,8 +96,46 @@ entries:
     version: 0.1.0
   dependency-track:
   - apiVersion: v2
+    appVersion: 4.9.0
+    created: "2023-10-17T08:30:31.919635+10:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/eb5f9a9513d987b519f0ecd732e7031241c50328/bitnami
+      version: ~10.10
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.0.x
+    description: 'Dependency-Track is an intelligent Software Supply Chain Component
+      Analysis platform that allows organizations to identify and reduce risk from
+      the use of third-party and open source components. Dependency-Track takes a
+      unique and highly beneficial approach by leveraging the capabilities of Software
+      Bill-of-Materials (SBOM). This approach provides capabilities that traditional
+      Software Composition Analysis (SCA) solutions cannot achieve. '
+    digest: 20a7159d32792d92b4965c59a99d4bf34b1bd5172fcb0bb366c163a496fb8e19
+    home: https://dependencytrack.org/
+    icon: https://raw.githubusercontent.com/DependencyTrack/branding/master/dt-logo-black-text.svg
+    keywords:
+    - security
+    - dependency
+    - dependency-track
+    - OWASP
+    - Supply Chain Component Analysis
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    - email: eth0linak@gmail.com
+      name: otterian
+    name: dependency-track
+    sources:
+    - https://docs.dependencytrack.org/
+    - https://github.com/evryfs/helm-charts
+    urls:
+    - https://gmarkey.github.io/helm-charts/dependency-track-1.5.7.tgz
+    version: 1.5.7
+  - apiVersion: v2
     appVersion: 4.8.2
-    created: "2023-10-12T14:29:28.320941+10:00"
+    created: "2023-10-17T08:30:31.916113+10:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -136,7 +174,7 @@ entries:
   ecr-proxy:
   - apiVersion: v2
     appVersion: bf1b787
-    created: "2023-10-12T14:29:28.324154+10:00"
+    created: "2023-10-17T08:30:31.922683+10:00"
     description: gmarkey/ecr-proxy
     digest: d5f704c8d7ae892203f2b4c6b1d7401fd2ad8448a84106c0c7ca2298b1617df6
     name: ecr-proxy
@@ -146,7 +184,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: bf1b787
-    created: "2023-10-12T14:29:28.323825+10:00"
+    created: "2023-10-17T08:30:31.922252+10:00"
     description: gmarkey/ecr-proxy
     digest: 17c7159a79b5bc576f18b5aaed65c5fed7b86c91301e78aa5fea8b6078a433e0
     name: ecr-proxy
@@ -156,7 +194,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 5e96982
-    created: "2023-10-12T14:29:28.323437+10:00"
+    created: "2023-10-17T08:30:31.921812+10:00"
     description: gmarkey/ecr-proxy
     digest: fd412f390ae8e70c950cd3cd57b412a0293adb5d2ae40d8ed2cdf0e8eb38a223
     name: ecr-proxy
@@ -166,7 +204,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: b2c7fcc
-    created: "2023-10-12T14:29:28.323043+10:00"
+    created: "2023-10-17T08:30:31.921349+10:00"
     description: gmarkey/ecr-proxy
     digest: f4c829aeb2001bd50bfb3c004357db4bc271922e4e168e5eed995953564d6196
     name: ecr-proxy
@@ -176,7 +214,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 7fde282
-    created: "2023-10-12T14:29:28.322016+10:00"
+    created: "2023-10-17T08:30:31.920901+10:00"
     description: gmarkey/ecr-proxy
     digest: c574c0a3fc913707586e74768b7d6810a19d11a2345a81342d185ef866ee03bd
     name: ecr-proxy
@@ -186,7 +224,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 7fde282
-    created: "2023-10-12T14:29:28.321678+10:00"
+    created: "2023-10-17T08:30:31.920515+10:00"
     description: gmarkey/ecr-proxy
     digest: 6608c787ba928424ceb9a4f0f8db3b2d1f93eabdaf617432d4985f7630fe0416
     name: ecr-proxy
@@ -196,7 +234,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 7fde282
-    created: "2023-10-12T14:29:28.321322+10:00"
+    created: "2023-10-17T08:30:31.920086+10:00"
     description: gmarkey/ecr-proxy
     digest: 6517a85bc4dbe591eb473d777ddfd78c9f81c19a23e588d81b3997d54add3f90
     name: ecr-proxy
@@ -207,7 +245,7 @@ entries:
   fluent-operator:
   - apiVersion: v2
     appVersion: 0.13.0
-    created: "2023-10-12T14:29:28.34322+10:00"
+    created: "2023-10-17T08:30:31.943849+10:00"
     description: A Helm chart for Kubernetes
     digest: d614af0dec0353539401cc0c950ef67533281bad303a889a5a161eb92417dd85
     name: fluent-operator
@@ -216,7 +254,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 0.13.0
-    created: "2023-10-12T14:29:28.34034+10:00"
+    created: "2023-10-17T08:30:31.941219+10:00"
     description: A Helm chart for Kubernetes
     digest: 97c63a1928795459b3147e83297e780a9b0291b5f8e36ae62c7c218f4cb38d38
     name: fluent-operator
@@ -225,7 +263,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 0.13.0
-    created: "2023-10-12T14:29:28.337844+10:00"
+    created: "2023-10-17T08:30:31.937957+10:00"
     description: A Helm chart for Kubernetes
     digest: c9ca2246d1ab8116fe404582e29d9be0d53f42c5c21e2120e660bae6402d9a5b
     name: fluent-operator
@@ -234,7 +272,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 0.13.0
-    created: "2023-10-12T14:29:28.334261+10:00"
+    created: "2023-10-17T08:30:31.935239+10:00"
     description: A Helm chart for Kubernetes
     digest: ca47d64e51ffa0e69013236643bd8440f85a51ff6e8d05007b1cdaac694226bb
     name: fluent-operator
@@ -243,7 +281,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 0.13.0
-    created: "2023-10-12T14:29:28.331547+10:00"
+    created: "2023-10-17T08:30:31.931862+10:00"
     description: A Helm chart for Kubernetes
     digest: 221133301e37b74b9f6d87906300ab0fc022000cb0af6f69940b1a8d1b3b3c51
     name: fluent-operator
@@ -252,7 +290,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 0.13.0
-    created: "2023-10-12T14:29:28.32932+10:00"
+    created: "2023-10-17T08:30:31.928776+10:00"
     description: A Helm chart for Kubernetes
     digest: ae0a7bfcff624f37829670b05d59cce6730cb66c7b3ec03c6c35af9641126203
     name: fluent-operator
@@ -261,7 +299,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.13.0
-    created: "2023-10-12T14:29:28.326396+10:00"
+    created: "2023-10-17T08:30:31.925508+10:00"
     description: A Helm chart for Kubernetes
     digest: 7ede46ca08b2719b48c79de89f50d1eeb0ed54b2d96b7d4ed62f2dad11383a2b
     name: fluent-operator
@@ -271,7 +309,7 @@ entries:
   k8s-snapshots:
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2023-10-12T14:29:28.343979+10:00"
+    created: "2023-10-17T08:30:31.944584+10:00"
     description: miracle2k/k8s-snapshots
     digest: 322b490d6713e6b48b3c58af81468d1a68ade1d80801862685788d509df03db5
     name: k8s-snapshots
@@ -281,7 +319,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2023-10-12T14:29:28.343695+10:00"
+    created: "2023-10-17T08:30:31.944231+10:00"
     description: miracle2k/k8s-snapshots
     digest: ab2933095ade3054e101b1338c5ef1b3a37ec05943347a4011ce332f84274390
     name: k8s-snapshots
@@ -292,7 +330,7 @@ entries:
   remote-storage-adapter:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2023-10-12T14:29:28.344968+10:00"
+    created: "2023-10-17T08:30:31.945718+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: efa85e252cd6d77f8f1f0f6f21dc0e48c36c119749b488e370295f817eca514a
     name: remote-storage-adapter
@@ -302,7 +340,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2023-10-12T14:29:28.344634+10:00"
+    created: "2023-10-17T08:30:31.945327+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: 39d51210e2171802bf7c0481080eaf35b0ec3fced2a7fc74f528f7cf67e14593
     name: remote-storage-adapter
@@ -312,7 +350,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2023-10-12T14:29:28.344305+10:00"
+    created: "2023-10-17T08:30:31.944944+10:00"
     description: github.com/weetime/remote_storage_adapter
     digest: e95ad62a6d8e68b32ec491724f0c0c970faa215bcdbc1a129c6814ae7147a281
     name: remote-storage-adapter
@@ -323,7 +361,7 @@ entries:
   squid:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-10-12T14:29:28.345382+10:00"
+    created: "2023-10-17T08:30:31.946188+10:00"
     description: gmarkey/squid
     digest: eb1836ecd0c028a81650fa3984640178381ebc93f58fbed806b1735b0771eeb9
     name: squid
@@ -334,7 +372,7 @@ entries:
   tz:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2023-10-12T14:29:28.346514+10:00"
+    created: "2023-10-17T08:30:31.948031+10:00"
     description: gmarkey/tz
     digest: d2adacbd2ae9ef7078a3dc2ddf8532c7c22d85496af313a3c3cb7f19e7ffa37e
     name: tz
@@ -344,7 +382,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2023-10-12T14:29:28.346244+10:00"
+    created: "2023-10-17T08:30:31.94773+10:00"
     description: gmarkey/tz
     digest: a02f022fed58dd5d9b28c88dc0b678258b8a2e039240814a6a52e05f093630bf
     name: tz
@@ -354,7 +392,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2023-10-12T14:29:28.345961+10:00"
+    created: "2023-10-17T08:30:31.947275+10:00"
     description: gmarkey/tz
     digest: 158e7dcc9f55aafedc7f38d64f8194e6d425afd92bda6a7b8e4ea00f5fb3ea25
     name: tz
@@ -364,7 +402,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2023-10-12T14:29:28.345679+10:00"
+    created: "2023-10-17T08:30:31.946781+10:00"
     description: gmarkey/tz
     digest: 4066c93dc66c509e1c5ee08c301e8bffb15d95946d3749af104e0e9e4cd86396
     name: tz
@@ -372,4 +410,4 @@ entries:
     urls:
     - https://gmarkey.github.io/helm-charts/tz-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-12T14:29:28.308058+10:00"
+generated: "2023-10-17T08:30:31.902523+10:00"
