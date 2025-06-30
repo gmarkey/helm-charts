@@ -35,7 +35,7 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "matchbox.fullname" $ }}
+                name: {{ include "matchbox.fullname" $ }}-rpc
                 port:
                   number: {{ $.Values.service.rpc.port }}
           {{- end }}
