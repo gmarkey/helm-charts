@@ -1,0 +1,26 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "matchbox.fullname" . }}-rpc-tls
+  labels:
+    {{- include "matchbox.labels" . | nindent 4 }}
+spec:
+  secretName: {{ .Values.matchbox.rpc.tls.secretName | default (printf "%s-rpc-tls" (include "matchbox.fullname" .)) }}
+  commonName: {{ .Values.matchbox.rpc.hostname | default (printf "%s.%s.svc.cluster.local" (include "matchbox.fullname" .) .Release.Namespace) }}
+
+  issuerRef:
+    name: {{ .Values.matchbox.rpc.tls.issuerName | default "selfsigned-issuer" }}
+    kind: {{ .Values.matchbox.rpc.tls.issuerKind | default "ClusterIssuer" }}
+    {{- if .Values.matchbox.rpc.tls.issuerGroup }}
+    group: {{ .Values.matchbox.rpc.tls.issuerGroup }}
+    {{- end }}
+
+  duration: 720h # 30d
+  renewBefore: 168h # 7d
+
+  privateKey:
+    algorithm: RSA
+    size: 2048
+
+  usages:
+  - "server auth"

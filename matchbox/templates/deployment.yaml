@@ -34,7 +34,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:v{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: MATCHBOX_ADDRESS
@@ -69,7 +69,14 @@ spec:
       volumes:
         - name: config
           secret:
-            secretName: {{ include "matchbox.fullname" . }}-rpc-config
+            secretName: {{ .Values.matchbox.rpc.tls.secretName | default (printf "%s-rpc-tls" (include "matchbox.fullname" .)) }}
+            items:
+              - key: ca.crt
+                path: ca.crt
+              - key: tls.crt
+                path: server.crt
+              - key: tls.key
+                path: server.key
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
